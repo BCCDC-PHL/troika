@@ -97,7 +97,7 @@ rule snippy:
         kraken = '{sample}/kraken.toml'
         
     output:
-        '{sample}/snippy.toml',
+        '{sample}/snippy.toml'
     threads:
         8
     # singularity: SINGULARITY_PATH_SNIPPY
@@ -150,7 +150,7 @@ rule run_iqtree_core:
         idx = IDX
     
     output:
-        'iqtree.toml',
+        'iqtree.toml'
     params:
         script_path = SCRIPT_PATH	
     script:
