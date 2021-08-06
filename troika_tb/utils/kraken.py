@@ -18,11 +18,11 @@ def get_top_3(isolate):
 
     return top_three
 
-def generate_cmd(r1, r2, isolate, db, data):
+def generate_cmd(r1, r2, isolate, db, data, kraken_threads):
     
     
     
-    cmd = f"kraken2 --paired {r1} {r2} --minimum-base-quality 13 --report {isolate}/kraken2.tab --memory-mapping --db {db} --threads 4"
+    cmd = f"kraken2 --paired {r1} {r2} --minimum-base-quality 13 --report {isolate}/kraken2.tab --memory-mapping --db {db} --threads {kraken_threads}"
     data[isolate]['kraken']['kraken_db'] = f"{db}"
 
     return cmd, data
@@ -51,7 +51,7 @@ def write_toml(data, output):
     with open(output, 'wt') as f:
         toml.dump(data, f)
     
-def main(r1, r2, isolate, kraken_db,run_kraken):
+def main(r1, r2, isolate, run_kraken, kraken_db, kraken_threads):
     
     # set up data dict
     tml = f"{pathlib.Path(isolate, 'kraken.toml')}"
@@ -60,7 +60,7 @@ def main(r1, r2, isolate, kraken_db,run_kraken):
     data[isolate]['kraken'] = {}
     # run kraken
     if run_kraken:
-        cmd, data = generate_cmd(r1 = r1, r2 = r2, isolate = isolate, db = kraken_db, data = data)
+        cmd, data = generate_cmd(r1 = r1, r2 = r2, isolate = isolate, db = kraken_db, data = data, kraken_threads = kraken_threads)
         kraken_returncode = run_cmd(cmd)
         if kraken_returncode == 0:
             # add to data dict
@@ -76,5 +76,6 @@ r2 = snakemake.input.r2
 isolate = snakemake.wildcards.sample
 run_kraken = snakemake.params.run_kraken
 kraken_db = snakemake.params.kraken_db
+kraken_threads = snakemake.params.kraken_threads
 
-main(r1 = r1, r2 = r2, isolate = isolate,run_kraken = run_kraken, kraken_db = kraken_db)
+main(r1 = r1, r2 = r2, isolate = isolate,run_kraken = run_kraken, kraken_db = kraken_db, kraken_threads = kraken_threads)
