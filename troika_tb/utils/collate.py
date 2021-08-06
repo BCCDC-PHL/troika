@@ -190,17 +190,17 @@ def collate_results(isolates, db, mode):
         p = pathlib.Path(isolate)
 
         json_path = p / f"tbprofiler.snpit_results.json"
-        print(json_path)
+        # print(json_path)
         data = json.load(open(json_path))
-        print(data)
+        # print(data)
         species = return_species(data)
-        print(species)
+        # print(species)
         lineage = return_lineage(data)
-        print(lineage)
+        # print(lineage)
         drugs = get_dr_variants(data)
-        print(drugs)
+        # print(drugs)
         resistance = calculate_resistance(drugs)
-        print(resistance)
+        # print(resistance)
         
         d = {
             'Organism identification by WGS':species,

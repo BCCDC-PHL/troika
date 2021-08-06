@@ -274,12 +274,12 @@ class Report:
         tabs = ['troika.tab', 'mtb.tab', 'distances.tab', 'seqdata.tab','core_genome.tab','core.treefile','core.tab']
         summary_df = pandas.DataFrame()
         df_list = []
-        print(tabs)
+        # print(tabs)
         for tab in tabs:
             # print(df)
             if tab == 'mtb.tab' and pathlib.Path('mtb.tab').exists():
                 species = pandas.read_csv(tab, sep = '\t')
-                print(species)
+                # print(species)
                 species = species[['Isolate', 'Match #1']]
                 summary_df = self.merge_dfs(summary_df, species)
                 summary_df = summary_df.rename(columns={'#1 Match': 'Species'})
@@ -309,7 +309,7 @@ class Report:
         resdata = pandas.read_csv('troika.tab', sep = '\t') 
         data = {}
         for row in resdata.iterrows():
-            print(row[1])
+            # print(row[1])
             rif =  "#adf0ad" if row[1]["Rifampicin"]== "No mutation detected" else "#f03329"
             inh = "#adf0ad" if row[1]["Isoniazid"]== "No mutation detected" else "#f03329"
             pza = "#adf0ad" if row[1]["Pyrazinamide"]== "No mutation detected" else "#f03329"

@@ -3,9 +3,9 @@ import toml, pathlib, subprocess, sys, pandas
 from snakemake import shell
 
 def open_toml(tml):
-    print(tml)
+    # print(tml)
     data = toml.load(tml)
-    print(data)
+    # print(data)
     return data
     
 def write_toml(data, output):

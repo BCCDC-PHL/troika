@@ -11,7 +11,7 @@ def run_snpit(vcf):
     if v.exists():
         cmd = f"snpit-run.py --input {v}"
         p = subprocess.run(cmd, shell = True, capture_output = True, encoding = "utf-8")
-        print (p)
+        # print (p)
         snpit_data = p.stdout.split("\n")
         lineage_strs = snpit_data[1].split('\t')
         if len(lineage_strs) == 1:

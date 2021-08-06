@@ -13,12 +13,12 @@ def get_species(kraken):
         s = tml[isolate]['kraken']['top_3'][0][0]
         # print(s)
         if 'Mycobacterium' in s:
-            print('Mycobacterium genus found')
+            # print('Mycobacterium genus found')
             for m in mtbc:
                 # print(m)
                 # print(m in s)
                 if m in s:
-                    print("found MTBC species")
+                    # print("found MTBC species")
                     return 'MTBC'
     # return 'non-MTBC'
             
@@ -50,7 +50,7 @@ def get_data(isolate):
                     if 'sample' in k:
                         dct.pop(k)
                 tb['dr_variants'].append(dct)
-        print(tb)
+        # print(tb)
         # for i in d:
         #     print(i)
         #     print(d[i])
@@ -95,8 +95,8 @@ def main(snippy,qc, isolate, threads, kraken):
     data = {}
     data[isolate] = {}
     data[isolate]['tb_profiler'] = {}
-    print(data)
-    print(tml)
+    # print(data)
+    # print(tml)
     if tml[isolate]['snippy']['run_snippy'] == 'Yes' and species in ['MTBC', 'kmer-id not performed']:
         cmd = generate_tbprofiler_cmd(snippy = snippy, isolate = isolate, threads = threads)
         print(cmd)

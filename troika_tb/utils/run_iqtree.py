@@ -14,7 +14,7 @@ def generate_delete_cmd():
 def run_cmd(cmd):
 
     p = subprocess.run(cmd, shell = True, capture_output=True, encoding = 'utf-8')
-    print(p)
+    # print(p)
     return p.stdout
 
 def open_toml(tml):
@@ -31,12 +31,12 @@ def write_toml(data, output):
 def main(inputs, ref, idx, script_path):
     
     t = open_toml(inputs)
-    print(t)
+    # print(t)
     aln = 'core.aln'
     cmd = generate_iqtree_cmd(aln = aln, script_path = script_path, reference = ref)
     i = run_cmd(cmd)
     i = f"{i.strip()} -redo"
-    print(i)
+    # print(i)
     iqtree = run_cmd(i)
     # print(iqtree)
     dl = generate_delete_cmd()

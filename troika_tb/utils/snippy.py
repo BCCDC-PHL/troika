@@ -5,7 +5,7 @@ from snakemake import shell
 def generate_snippy_cmd(r1, r2, isolate, reference, threads):
     
     cmd = f"snippy --outdir {isolate} --ref {reference} --R1 {r1} --R2 {r2} --force --cpus {threads}"
-    print(cmd)
+    # print(cmd)
     return cmd
 
 def run_cmd(cmd):
@@ -16,7 +16,7 @@ def run_cmd(cmd):
 def get_species(kraken):
     mtbc = ['pinnipedii', 'tuberculosis', 'orygis', 'bovis', 'bovis BCG', 'canetti', 'microti', 'africanum']
     tml = open_toml(kraken)
-    print(tml)
+    # print(tml)
     isolate = list(tml.keys())[0]
     if tml[isolate]['kraken']['done'] == 'No':
         return 'kmer-id not performed'
@@ -24,12 +24,12 @@ def get_species(kraken):
         s = tml[isolate]['kraken']['top_3'][0][0]
         # print(s)
         if 'Mycobacterium' in s:
-            print('Mycobacterium genus found')
+            # print('Mycobacterium genus found')
             for m in mtbc:
                 print(m)
                 print(m in s)
                 if m in s:
-                    print("found MTBC species")
+                    # print("found MTBC species")
                     return 'MTBC'
 
 def get_reads(seqdata, isolate):
@@ -42,9 +42,9 @@ def get_reads(seqdata, isolate):
 def get_quality(seqdata, kraken, isolate):
 
     s = open_toml(seqdata)
-    print(s)
+    # print(s)
     k = get_species(kraken)
-    print(k)
+    # print(k)
     if s[isolate]['seqdata']['data']['Quality'] == 'PASS' and k == 'MTBC':
         return 'Yes'
     else:
@@ -68,7 +68,7 @@ def main(seqdata,kraken, isolate, output, reference, threads):
     # print(threads)
     r1,r2 = get_reads(seqdata = seqdata, isolate = isolate)
     run_snippy = get_quality(seqdata = seqdata, kraken = kraken, isolate = isolate)
-    print(run_snippy)
+    # print(run_snippy)
     data = {}
     data[isolate] = {}
     data[isolate]['snippy'] = {}

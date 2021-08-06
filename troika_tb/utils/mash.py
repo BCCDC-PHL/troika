@@ -15,10 +15,10 @@ def extract_metrics(mash_string):
     mash_string = mash_string.split('\n')
     d = ''
     for m in mash_string:
-        print(m)
+        # print(m)
         if 'Estimated coverage' in m:
             d = float(m.split(':')[-1].strip()) * 2
-            print(d)
+            # print(d)
             return d
     
 def write_toml(data, output):

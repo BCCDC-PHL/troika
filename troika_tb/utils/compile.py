@@ -63,7 +63,7 @@ def preview_distances_tab(table):
     for d in range(1,len(data)):
         row = [f"<tr>"]
         l = data[d].split()
-        print(l)
+        # print(l)
         header.append(l[0])
         for i in range(len(l)):
         # print(d)  
@@ -252,7 +252,7 @@ def fill_vals(td, pipeline):
     # # snpdistances = []
     # # snpdensity = []
     # else:
-    print(range(len(td)))
+    # print(range(len(td)))
     # print(td[10])
     for t in range(len(td)):
         # print(t)
@@ -273,7 +273,7 @@ def fill_vals(td, pipeline):
         if td[t]['type'] == 'summary':
             # generate_summary()
             td[t]['head'], td[t]['body'] = write_tables(table = td[t]['file'])
-        print(t)
+        # print(t)
     return td
 
 def get_software_versions(software):
@@ -444,7 +444,7 @@ def write_toml(data, output):
 def main(inputs, pipeline,job_id, assembler = ''):
     # initialise dictionary
     # print(pipeline)
-    print(inputs)
+    # print(inputs)
     data = {
         'newick' :'',
         'snpdensity':'',

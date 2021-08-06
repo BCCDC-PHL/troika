@@ -19,7 +19,7 @@ def get_data(cmd_output):
     summary_pat = re.compile(r'(\w+):\s(\d+\.?\d?\d?);')
     distinct_values = re.compile(r';\s(\d+)\s\w+')
     # print(distinct_values)
-    print(output[1])
+    # print(output[1])
     record = re.compile(r'(\d+\.?\d?\d?)')
     summary_dict = dict((k, float(v)) for k, v in summary_pat.findall(output[0]))
     # print(distinct_values.findall(output[0]))
@@ -43,7 +43,7 @@ def get_data(cmd_output):
 def get_coverage(mash, isolate):
 
     m = open_toml(mash)
-    print(m)
+    # print(m)
     return m[isolate]['mash']['Estimated coverage']
 
 
@@ -61,7 +61,7 @@ def write_toml(data, output):
 def main(r1, r2, isolate, mash, mincov):
     
     msh = open_toml(mash)
-    print(msh)
+    # print(msh)
     data = {}
     data[isolate] = {}
     data[isolate]['seqdata'] = {}

@@ -4,10 +4,10 @@ from snakemake import shell
 
 def get_isolate_list(inputs):
     
-    print(inputs)
+    # print(inputs)
     isolates = []
     for i in inputs:
-        print(i)
+        # print(i)
         data = open_toml(i)
         print(data)
         isolate = pathlib.Path(i).parts[0]
@@ -20,11 +20,11 @@ def core_stats(inputs):
     df = pandas.DataFrame()
     for i in inputs:
         tml = open_toml(i)
-        print(tml)
+        # print(tml)
         isolate = list(tml.keys())[0]
         d = pandas.DataFrame(tml[isolate]['qc_snippy'], index = [0])
         d['Isolate'] = isolate
-        print(d)
+        # print(d)
         d = d[['Isolate', 'Quality']]
         if df.empty:
             df = d
@@ -33,7 +33,7 @@ def core_stats(inputs):
 
     # for core.txt
     tab = pandas.read_csv(f"core.txt", sep = '\t')
-    print(tab)
+    # print(tab)
     tab['% USED'] = 100 * (tab['LENGTH'] - tab['UNALIGNED'])/ tab['LENGTH']
     tab['% USED'] = tab['% USED'].round(2)
     tab = tab.rename(columns={'ID':'Isolate'})
