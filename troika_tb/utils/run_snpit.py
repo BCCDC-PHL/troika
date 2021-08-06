@@ -9,14 +9,20 @@ def run_snpit(vcf):
     # print(vcf)   
     v = pathlib.Path(vcf)
     if v.exists():
-        cmd = f"snpit --input {v}"
+        cmd = f"snpit-run.py --input {v}"
         p = subprocess.run(cmd, shell = True, capture_output = True, encoding = "utf-8")
+        print (p)
         snpit_data = p.stdout.split("\n")
         lineage_strs = snpit_data[1].split('\t')
+        if len(lineage_strs) == 1:
+            lineage_strs = snpit_data[0].split('\t')
         sp = lineage_strs[1]
         l = lineage_strs[2]
-        f = lineage_strs[4] if lineage_strs[4] != 'N/A' else ''
-        
+        try:
+            f = lineage_strs[4] if lineage_strs[4] != 'N/A' else ''
+        except:
+            f = ''
+
         return [sp, l,f]
 
 def append_to_json(lineage, json_file, outfile):
