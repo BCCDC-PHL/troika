@@ -94,6 +94,6 @@ kraken = snakemake.input.kraken
 isolate = snakemake.wildcards.sample
 output = snakemake.output
 reference = snakemake.params.reference
-threads = snakemake.threads
+threads = snakemake.params.snippy_threads
 
 main(seqdata = seqdata, kraken =kraken, isolate = isolate, output = output,reference = reference, threads =threads)

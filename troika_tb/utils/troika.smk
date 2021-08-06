@@ -103,7 +103,8 @@ rule snippy:
     # singularity: SINGULARITY_PATH_SNIPPY
     params:
         script_path=SCRIPT_PATH,
-        reference = REFERENCE
+        reference = REFERENCE,
+        snippy_threads = SNIPPY_THREADS
     script:
         "snippy.py"
 
