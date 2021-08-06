@@ -42,7 +42,7 @@ rule run_kraken:
         kraken_db = KRAKEN_DB,
         script_path = SCRIPT_PATH,
         run_kraken = RUN_SPECIES,
-	kraken_threads = KRAKEN_THREADS
+        kraken_threads = KRAKEN_THREADS
     script:
         "kraken.py"
 
