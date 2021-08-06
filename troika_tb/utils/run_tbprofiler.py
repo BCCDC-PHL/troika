@@ -26,7 +26,7 @@ def get_species(kraken):
 def generate_tbprofiler_cmd(snippy, isolate, threads):
     tml = open_toml(snippy)
     bam = f"{tml[isolate]['snippy']['bam']}"
-    cmd = f"tb-profiler profile -a {bam} --caller bcftools -t 6  -d {isolate}"
+    cmd = f"tb-profiler profile -a {bam} --caller bcftools -t {threads}  -d {isolate}"
 
     return cmd
 
