@@ -17,7 +17,7 @@ def extract_metrics(mash_string):
     for m in mash_string:
         print(m)
         if 'Estimated coverage' in m:
-            d = m.split(':')[-1].strip()
+            d = float(m.split(':')[-1].strip()) * 2
             print(d)
             return d
     
