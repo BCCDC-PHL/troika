@@ -38,8 +38,8 @@ jobs:
     - name: create artifacts dir to save test logs
       run: mkdir artifacts
     - name: Test with pytest
-        run: |
-          pytest | tee artifacts/test.log
+      run: |
+        pytest | tee artifacts/test.log
     - uses: actions/upload-artifact@v1
       if: always()
       with:
