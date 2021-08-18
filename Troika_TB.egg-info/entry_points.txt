@@ -1,3 +1,0 @@
-[console_scripts]
-troika = troika_tb.troika_tb:main
-
