@@ -58,3 +58,5 @@ def test_path_exists():
         detect_obj = Troika(args)
         assert detect_obj.path_exists(p)
 
+def test_fail():
+        assert 1 == 2
