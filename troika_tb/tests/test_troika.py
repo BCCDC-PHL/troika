@@ -1,6 +1,6 @@
 import sys, pathlib, pandas, pytest, numpy
 import argparse
-import logging
+
 from unittest.mock import patch
 
 from troika_tb.RunTroika import Troika
