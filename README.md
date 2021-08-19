@@ -1,4 +1,5 @@
 [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
+![push master](https://github.com/BCCDC-PHL/troika/actions/workflows/push_master.yml/badge.svg)
 
 
 
