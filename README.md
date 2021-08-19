@@ -5,7 +5,7 @@
 
 # Troika
 
-Detection of resistance mechanisms in _Mycobacterium tuberculosis_ is dependent upon identification of SNPs that may confer decreased susceptibility to anti-mycobacterial drugs. Troika is a pipeline, which calls SNPs for both phylogenetic analysis and determination of AST. Troika leverages high quality tools, including [Snippy](https://github.com/tseemann/snippy) and [TB-profiler](https://github.com/jodyphelan/TBProfiler) and its related database to detect resistance conferring mutations from Illumina read data and filters these results for reporting for public health and clinical use in Australia.
+Detection of resistance mechanisms in _Mycobacterium tuberculosis_ is dependent upon identification of SNPs that may confer decreased susceptibility to anti-mycobacterial drugs. Troika is a pipeline, which calls SNPs for both phylogenetic analysis and determination of AST. Troika leverages high quality tools, including [Snippy](https://github.com/tseemann/snippy) and [TB-profiler](https://github.com/jodyphelan/TBProfiler) and its related database to detect resistance conferring mutations from Illumina read data and filters these results for reporting for public health and clinical use. The [upstream repository](https://github.com/MDU-PHL/troika) was created and designed for use in Australia, and this fork has been created to adapt Troika for use at the [BCCDC Public Health Laboratory](http://www.bccdc.ca/our-services/service-areas/bccdc-public-health-laboratory).
 
 
 ### Motivation
@@ -26,7 +26,7 @@ TO COME
 #### PyPi
 
 ```
-pip3 install Troika-Tb
+pip3 install git+https://github.com/BCCDC-PHL/troika.git
 ```
 
 ### Running Troika
