@@ -57,6 +57,3 @@ def test_path_exists():
         p = pathlib.Path('troika_tb','tests', 'troika.txt')
         detect_obj = Troika(args)
         assert detect_obj.path_exists(p)
-
-def test_fail():
-        assert 1 == 2
