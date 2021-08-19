@@ -39,7 +39,12 @@ jobs:
       run: mkdir artifacts
     - name: Test with pytest
       run: |
-        pytest | tee artifacts/test.log
+        pytest 2>&1 | tee artifacts/test.log
+        result_code=${PIPESTATUS[0]}
+        echo "::set-output name=pytest::$(cat artifacts/test.log)"
+        exit $result_code
+    - name: create artifacts dir to save test logs
+      run: mkdir artifacts
     - uses: actions/upload-artifact@v1
       if: always()
       with:
